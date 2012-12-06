@@ -1,5 +1,6 @@
 %Load in clean data
 load cleandata_students.mat;
+load noisydata_students.mat;
 
 %Create a row vector of attributes
 attributes = 1:45;
