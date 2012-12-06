@@ -51,6 +51,10 @@ We used the inbuilt "ttest", paired t-test. We decided to use this since they ar
 
 \subsection{Why do you think t-test was performed on the classification error and not the F1 measure? What‟s the theoretical justification for this decision?}
 
+Each fold will have a different number of positive and negative examples. The F1 will not be identically distributed since it is an average of the recall and precision rates, a precise algorithm will perform better in folds with more positive examples skewing the results. 
+
+This means the sample error for that fold is no longer an i.i.d. To calculate the variance of the sample errors the central limit theorm is used under the assumption that the samples are i.i.d, this means that the variance used in the t-test calculation will not be representative.
+
 \subsection{What is the trade-off between the number of folds you use and the number of examples per fold? In other words, what is going to happen if you use more folds, so you will have fewer examples per fold, or if you use fewer folds, so you will have more examples per fold?}
 
 Using smaller folds trains your algorithm using a larger variety of data and the average result over the larger sample of performance measures will produce more reliable results.
