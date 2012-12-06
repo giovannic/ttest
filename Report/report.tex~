@@ -56,25 +56,41 @@ Emotion & name & Decision Tree & Neural Network & CBR\\ [0.5ex] % inserts table
 \end{tabular}
 
 \subsection{Part 2: T-test of the clean data}
-
 \subsection{Part 3: T-test of the noisy data}
 
 \section{Questions}
+
 \subsection{Which algorithm performed better overall in terms of values of F1 measure (part I)? Which algorithm performed better when comparison was performed using the t-test (part II and part III)? Can we claim that this algorithm is a better learning algorithm than the others in general? Why? Why not?}
 
-The CBR performs best overall when dealing with noisy data. We assume it achieves this through our tiered system. Although new cases appear, they are seldom used for classification since they are too far from the typical cases in a cluster. This means our CBR can maintain its generality while still learining from the litte relevant data there is in the noisy data set while the other algorithms are overfitted to the clean data.
-
 \subsection{How did you adjust the significance level in order to take into account the fact that you perform a multiple comparison test?}
+As we are performing multiple statistical tests this increases the chance that a significant result is produced simply by chance for example if you did 100 tests at the P < 0.1 significance level then you expect 10 of the 
+tests to come back as significant simply by chance. We therefore had to adjust our signficance level to counter this problem, to do this we used the Bonferroni correction. The Bonferroni correction works by simply dividing
+your significance (in our case 0.05) by the number of tests (in our case 3) to produce a new significance level for an individual test of 5 / 3; 
 
 \subsection{Which type of t-test did you use and why?}
 
-We used the inbuilt "ttest", paired t-test. We decided to use this since they are not independent between the different algorithms. Since each of our folds are decided deterministically our algorithms use the same training examples to predict corresponding labels so it. Therefore it makes sense to pair these predictions of the same data and compare the difference and check if they are similar.  
+We used the inbuilt ttest2
 
 \subsection{Why do you think t-test was performed on the classification error and not the F1 measure? What‟s the theoretical justification for this decision?}
 
-Each fold will have a different number of positive and negative examples. The F1 will not be identically distributed since it is an average of the recall and precision rates, a precise algorithm will perform better in folds with more positive examples skewing the results. 
+The provided target values have the following percentage of the 6 emotions:
 
-This means the sample error for that fold is no longer an i.i.d. To calculate the variance of the sample errors the central limit theorm is used under the assumption that the samples are i.i.d, this means that the variance used in the t-test calculation will not be representative.
+\begin{tabular}{c c c} % centered columns (4 columns)
+\hline\hline %inserts double horizontal lines
+Emotion & name & Percentage\\ [0.5ex] % inserts table
+\hline % inserts single horizontal line
+1 & anger     & 13 \\ % inserting body of the table
+2 & disgust   & 19 \\
+3 & fear      & 12 \\
+4 & happiness & 21 \\
+5 & sadness   & 13 \\ 
+6 & suprise   & 20 \\ [1ex] % [1ex] adds vertical space
+\hline %inserts single line
+\end{tabular}
+
+This means that the provided targets are unbalanced, there is not an equal chance of getting each emotion. Using the classification function as a fitness function would be misleading since it is not weighted for each emotion.
+
+Using the precision rate would weight the true positives against the positive examples of the emotion and the recall rate will weight the false negative against the negative examples. The average of this will give our f1 measure which is more representative of our performance. 
 
 \subsection{What is the trade-off between the number of folds you use and the number of examples per fold? In other words, what is going to happen if you use more folds, so you will have fewer examples per fold, or if you use fewer folds, so you will have more examples per fold?}
 As the number of folds decreases the size of your training and validation set for each fold increases until you reach one fold which simply splits your data into a 2/3 training and 1/3 validation set, if you then build your system only considering this data you are likely to produce a system which performs very well with your validation data but not very well with unseen data, the system has become overfitted. By performing cross validation you hope to expose your system to a wide variety of data and thus you can see how it performs over the whole dataset.
@@ -86,9 +102,5 @@ As a minor point, many small folds will cause a large overhead in computation an
 
 \subsection{Suppose that we want to add some new emotions to the existing dataset. Which of the examined algorithms are more suitable for incorporating the new classes in terms of engineering effort? Which algorithms need to undergo radical changes in order to include new classes?}
 
-The eager learning algorithms, decision trees and neural networks, will require the most effort since they will have to be retrained from scratch using a dataset including examples of the new emotion. 
 
-Of these neural networks will require the most computational effort due to the large number of parameters. The requirements to correctly predict the new emotion could move any number of parameters for network training meaning the search for an optimal network will have to be redone.
-
-In the lazy learning, case based reasoning, algorithm it is possible for you to create a new cluster and feed it examples through the 'retain' method. However, an active system may have more of an understanding of the typicality of the current cases in the system and therefore the new emotion will be at a slight disadvantage and in the wrong environment it may be isolated and not perform as well. It is still possible to retrain the system from scratch to acheive better classification rates.
 \end{document}
