@@ -42,7 +42,7 @@
 
 \subsection{Part 1: Comparison of values of F1 measure}
 
-\begin{tabular}{c c c c c c} % centered columns (4 columns)
+\begin{tabular}{c c c} % centered columns (4 columns)
 \hline\hline %inserts double horizontal lines
 Emotion & name & Decision Tree & Neural Network & CBR\\ [0.5ex] % inserts table
 \hline % inserts single horizontal line
@@ -60,9 +60,8 @@ Emotion & name & Decision Tree & Neural Network & CBR\\ [0.5ex] % inserts table
 \subsection{Part 3: T-test of the noisy data}
 
 \section{Questions}
-\subsection{Which algorithm performed better overall in terms of values of F1 measure (part I)? Which algorithm performed better when comparison was performed using the t-test (part II and part III)? Can we claim that this algorithm is a better learning algorithm than the others in general? Why? Why not?}
 
-The CBR performs best overall when dealing with noisy data. We assume it achieves this through our tiered system. Although new cases appear, they are seldom used for classification since they are too far from the typical cases in a cluster. This means our CBR can maintain its generality while still learining from the litte relevant data there is in the noisy data set while the other algorithms are overfitted to the clean data.
+\subsection{Which algorithm performed better overall in terms of values of F1 measure (part I)? Which algorithm performed better when comparison was performed using the t-test (part II and part III)? Can we claim that this algorithm is a better learning algorithm than the others in general? Why? Why not?}
 
 \subsection{How did you adjust the significance level in order to take into account the fact that you perform a multiple comparison test?}
 As we are performing multiple statistical tests this increases the chance that a significant result is produced simply by chance for example if you did 100 tests at the P < 0.1 significance level then you expect 10 of the 
@@ -73,7 +72,7 @@ your significance (in our case 0.05) by the number of tests (in our case 3) to p
 
 We used the inbuilt "ttest", paired t-test. We decided to use this since they are not independent between the different algorithms. Since each of our folds are decided deterministically our algorithms use the same training examples to predict corresponding labels so it. Therefore it makes sense to pair these predictions of the same data and compare the difference and check if they are similar.  
 
-\subsection{Why do you think t-test was performed on the classification error and not the F1 measure? What is the theoretical justification for this decision?}
+\subsection{Why do you think t-test was performed on the classification error and not the F1 measure? What‟s the theoretical justification for this decision?}
 
 Each fold will have a different number of positive and negative examples. The F1 will not be identically distributed since it is an average of the recall and precision rates, a precise algorithm will perform better in folds with more positive examples skewing the results. 
 
