@@ -40,10 +40,32 @@
 
 \section{Results}
 
+\subsection{Comparison of values of F1 measure}
+
+\begin{tabular}{c c c} % centered columns (4 columns)
+\hline\hline %inserts double horizontal lines
+Emotion & name & Decision Tree & Neural Network & CBR\\ [0.5ex] % inserts table
+\hline % inserts single horizontal line
+1 & anger     & 0 & 0 & 0  \\ % inserting body of the table
+2 & disgust   & 0 & 0 & 0  \\
+3 & fear      & 0 & 0 & 0  \\
+4 & happiness & 0 & 0 & 0  \\
+5 & sadness   & 0 & 0 & 0  \\ 
+6 & suprise   & 0 & 0 & 0  \\ [1ex] % [1ex] adds vertical space
+\hline %inserts single line
+\end{tabular}
+
+\subsection{T-test of the clean data}
+\subsection{T-test of the noisy data}
+
 \section{Questions}
+
 \subsection{Which algorithm performed better overall in terms of values of F1 measure (part I)? Which algorithm performed better when comparison was performed using the t-test (part II and part III)? Can we claim that this algorithm is a better learning algorithm than the others in general? Why? Why not?}
 
 \subsection{How did you adjust the significance level in order to take into account the fact that you perform a multiple comparison test?}
+As we are performing multiple statistical tests this increases the chance that a significant result is produced simply by chance for example if you did 100 tests at the P < 0.1 significance level then you expect 10 of the 
+tests to come back as significant simply by chance. We therefore had to adjust our signficance level to counter this problem, to do this we used the Bonferroni correction. The Bonferroni correction works by simply dividing
+your significance (in our case 0.05) by the number of tests (in our case 3) to produce a new significance level for an individual test of 5 / 3; 
 
 \subsection{Which type of t-test did you use and why?}
 

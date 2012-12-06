@@ -28,7 +28,7 @@
 
 
 
-\title{Assignment 3 \\ Group 30  }
+\title{Assignment 4 \\ Group 30  }
 
 \author{John Walker \and Adam Fiksen \and Giovanni Charles }
 
@@ -37,111 +37,53 @@
 \maketitle           % generates the title from the data above
 
 
+
 \section{Results}
-% Confuction matrices (for both types of networks)
-% Average classification rate and recall, precision and F1 measures per class (part VIII).
 
-\subsection{Confusion Matricies}
+\subsection{Comparison of values of F1 measure}
 
-\begin{table}[H]
-\caption{Confusion Six output Network} % title of Table
-\centering % used for centering table
-\begin{tabular}{c c c c c c} % centered columns (4 columns)
-\hline % inserts single horizontal line
-90  & 12   & 4   & 1     & 12  & 1   \\ % inserting body of the table
-16  & 169  & 4   & 8     & 24  & 1   \\
-5   & 0    & 93  & 1     & 4   & 7   \\
-3   & 5    & 1   & 201   & 4   & 2   \\
-13  & 12   & 3   & 2     & 86  & 3   \\ 
-4   & 0    & 13  & 2     & 2   & 192 \\ [1ex] % [1ex] adds vertical space
-\hline %inserts single line
-\end{tabular}
-\label{table:sixconf} % is used to refer this table in the text
-\end{table}
-
-\begin{table}[H]
-\caption{Confusion Single Output Networks} % title of Table
-\centering % used for centering table
-\begin{tabular}{c c c c c c} % centered columns (4 columns)
-\hline % inserts single horizontal line
-98  & 13   & 4   & 0    & 11  & 1   \\ % inserting body of the table
-14  & 164  & 4   & 9    & 16  & 1   \\
-3   & 1    & 96  & 0    & 4   & 13  \\
-3   & 6    & 1   & 204  & 3   & 3   \\
-12  & 14   & 3   & 1    & 95  & 1   \\ 
-1   & 0    & 10  & 1    & 3   & 187 \\ [1ex] % [1ex] adds vertical space
-\hline %inserts single line
-\end{tabular}
-\label{table:singconf} % is used to refer this table in the text
-\end{table}
-
-\subsection{Average Classification Rate, Recall Precision and F1 Measures}
-
-\begin{table}[H]
-\caption{Six Output Evaluation Results} % title of Table
-\centering % used for centering table
-\begin{tabular}{c c c c c} % centered columns (4 columns)
+\begin{tabular}{c c c} % centered columns (4 columns)
 \hline\hline %inserts double horizontal lines
-Emotion & name & Precision rate & Recall rate & f1 measure\\ [0.5ex] % inserts table
+Emotion & name & Decision Tree & Neural Network & CBR\\ [0.5ex] % inserts table
 \hline % inserts single horizontal line
-1 & anger     & 68.7023 & 75.0000 & 70.7131\\ % inserting body of the table
-2 & disgust   & 85.3535 & 76.1261 & 80.4762\\
-3 & fear      & 78.8136 & 84.5455 & 81.5789\\
-4 & happiness & 93.4884 & 93.0556 & 93.2715\\
-5 & sadness   & 65.1515 & 72.2689 & 68.5259\\ 
-6 & suprise   & 93.2039 & 90.1408 & 91.6468\\ [1ex] % [1ex] adds vertical space
+1 & anger     & 0 & 0 & 0  \\ % inserting body of the table
+2 & disgust   & 0 & 0 & 0  \\
+3 & fear      & 0 & 0 & 0  \\
+4 & happiness & 0 & 0 & 0  \\
+5 & sadness   & 0 & 0 & 0  \\ 
+6 & suprise   & 0 & 0 & 0  \\ [1ex] % [1ex] adds vertical space
 \hline %inserts single line
 \end{tabular}
-\label{table:sixevaluation} % is used to refer this table in the text
-\end{table}
 
-Classification Rate: 0.8310
+\subsection{T-test of the clean data}
+\subsection{T-test of the noisy data}
 
-\begin{table}[H]
-\caption{Single Output Evaluation Results} % title of Table
-\centering % used for centering table
-\begin{tabular}{c c c c c} % centered columns (4 columns)
-\hline\hline %inserts double horizontal lines
-Emotion & name & Precision rate & Recall rate & f1 measure\\ [0.5ex] % inserts table
-\hline % inserts single horizontal line
-1 & anger     & 74.8092 & 77.1654 & 75.9690\\ % inserting body of the table
-2 & disgust   & 82.8283 & 78.8462 & 80.7882\\
-3 & fear      & 81.3559 & 82.0513 & 81.7021\\
-4 & happiness & 94.8837 & 92.7273 & 93.7931\\
-5 & sadness   & 71.9697 & 75.3968 & 73.6434\\ 
-6 & suprise   & 90.7767 & 92.5743 & 91.6667\\ [1ex] % [1ex] adds vertical space
-\hline %inserts single line
-\end{tabular}
-\label{table:singleevaluation} % is used to refer this table in the text
-\end{table}
-
-Classification Rate: 0.8440
-
-\section{Fold Perfomance}
-%Figure of the average performance per fold for both types of networks (part IX)
-\begin{figure} [H]
-\includegraphics[width=\linewidth]{1by6plot.jpg}
-\caption{"F1 performance for the 6 output network"}
-\end{figure}
-\begin{figure} [H]
-\includegraphics[width=\linewidth]{6by1plot.jpg}
-\caption{"F1 performance for the single output networks"}
-\end{figure}
-
-
-\section{Implementation Details}
-% Brief summary of implementation details (e.g., (e.g., how you performed cross-validation,
-% how you classified each example based on %the 6 outputs, 
-%anything that you think it is important in your system implementation);
 \section{Questions}
 
-\subsection{Discuss how you obtained the optimal topology and optimal values of network parameters. Describe the performance measure you used (and explain why you preferred it over other measures) and the different topologies / parameters you experimented with}
-%Question above /\
+\subsection{Which algorithm performed better overall in terms of values of F1 measure (part I)? Which algorithm performed better when comparison was performed using the t-test (part II and part III)? Can we claim that this algorithm is a better learning algorithm than the others in general? Why? Why not?}
 
-%FIKSEN/GIO/ME first part (optimal topology/values)
+\subsection{How did you adjust the significance level in order to take into account the fact that you perform a multiple comparison test?}
+<<<<<<< HEAD
+As we are performing multiple statistical tests this increases the chance that a significant result is produced simply by chance for example if you did 100 tests at the P < 0.1 significance level then you expect 10 of the 
+tests to come back as significant simply by chance. We therefore had to adjust our signficance level to counter this problem, to do this we used the Bonferroni correction. The Bonferroni correction works by simply dividing
+your significance (in our case 0.05) by the number of tests (in our case 3) to produce a new significance level for an individual test of 5 / 3; 
 
-%GIO talk about f1 vs other measures please
-The provided y values have the following percentage of the 6 emotions:
+\subsection{Which type of t-test did you use and why?}
+
+\subsection{Why do you think t-test was performed on the classification error and not the F1 measure? Whats the theoretical justification for this decision?}
+
+\subsection{What is the trade-off between the number of folds you use and the number of examples per fold? In other words, what is going to happen if you use more folds, so you will have fewer examples per fold, or if you use fewer folds, so you will have more examples per fold?}
+
+\subsection{Suppose that we want to add some new emotions to the existing dataset. Which of the examined algorithms are more suitable for incorporating the new classes in terms of engineering effort? Which algorithms need to undergo radical changes in order to include new classes?}
+=======
+
+\subsection{Which type of t-test did you use and why?}
+
+We used the inbuilt ttest2
+
+\subsection{Why do you think t-test was performed on the classification error and not the F1 measure? What‟s the theoretical justification for this decision?}
+
+The provided target values have the following percentage of the 6 emotions:
 
 \begin{tabular}{c c c} % centered columns (4 columns)
 \hline\hline %inserts double horizontal lines
@@ -158,79 +100,18 @@ Emotion & name & Percentage\\ [0.5ex] % inserts table
 
 This means that the provided targets are unbalanced, there is not an equal chance of getting each emotion. Using the classification function as a fitness function would be misleading since it is not weighted for each emotion.
 
-Using the precision rate would weight the false positives against the negative examples of the emotion and the recall rate will weight the true negative against the positive examples. The average of this will give our f1 measure which is more representative of our performance. 
+Using the precision rate would weight the true positives against the positive examples of the emotion and the recall rate will weight the false negative against the negative examples. The average of this will give our f1 measure which is more representative of our performance. 
 
-We thought the extra time it would take to calculate the f1 was insignificant incomparison to the training function and would yeild better results in our genetic algorithm by discarding truely bad candidates instead of keeping candidates which were slightly better at evaluating the most common emotion, happiness.
+\subsection{What is the trade-off between the number of folds you use and the number of examples per fold? In other words, what is going to happen if you use more folds, so you will have fewer examples per fold, or if you use fewer folds, so you will have more examples per fold?}
+>>>>>>> 6af6fc704fc0505396d05ad6b36e751bd53832a5
 
-We experimented with the following parameters
-\begin{enumerate}
-  \item Number of hidden layers
-  \item Number of hidden neurons in each layer
-  \item Transfer function
-  \item Training function
-  \item Learning rate \emph{(where appropriate)}
-  \item Momentum      \emph{(where appropriate)}
-\end{enumerate}
+Using smaller folds trains your algorithm using a larger variety of data and the average result over the larger sample of performance measures will produce more reliable results.
 
-We decided to make the search space for (1) between 1 - 2. We took this decision as the lecture notes indicate "Networks with many hidden layers are prone to overfitting and harder to train, for most problems one hidden layer should be enough, 2 hidden layers can sometimes lead to improvement". Further to this, the course textbook claims that few practical applications ever need 3 or more layers.
+As a minor point, many small folds will cause a large overhead in computation and is not suggested for frequent evaluation of the performance. 
 
-Initially We decided to make the search space for (2) between 1-17 neurons for layer 1, 0 - 30 for layer 2 (0 layer 2 neurons representing only 1 layer in NN). We got these values through researching NNs and found these quotes by Jeff Heaton in \emph{Introduction to Neural Networks In Java} -- "the optimal size of the hidden layer is usually between the size of the input and size of the output layers" and "A good number of neurons is likely to be around the average of the inputs and outputs". We then experimented, varying the layer sizes and observed when the number of neurons > 30, training time simply far surpassed any improvement and therefore we made this the ceiling.
+At the extremely small fold sizes the algorithms will experience underfitting to the data. The algorithm will not 'learn' enough from the fold to predict the rest of the data so will appear to perform worse than normal. Larger folds will fit closer to the data and will be more representitive of how the algorithm will perform with larger datasets. 
 
-The number of layers and neurons/layer were initially calculated using a brute force method in which we went through every combination of layer 1 and layer 2 neurons in the search space and calculated the average f1 measure for each network (keeping default values for transfer functions etc.). The results of running this brute force test can be seen in the graphs below. This gave us the conclusion that the topology [13,27] was the best with other default parameters, and gave us a seed value for later.
-
-[INSERT graphs here]
-
-Having tested optimal topology using brute force, we decided to use a more elegant solution to get us our final optimal network by using a genetic algorithm.
-
-For this algorithm to run in enough time to complete the project, we noticed we would have to drastically reduce the search space. As such, we decided to remove a large number of in built training functions as they were unnecessary, slow or incompatible with our NN.
-We limited out search space to the following transfer functions:
-\begin{multicols}{2}
-\begin{itemize}
-  \item trainbfg
-  \item traincgb
-  \item traincgf
-  \item traincgp
-  \item traingda
-  \item traingdm
-  \item traingdx
-  \item trainlm
-  \item trainoss
-  \item trainrp
-  \item trainscg 
-\end{itemize}
-\end{multicols}
-
-These were selected from a list of 20 functions taken from the Matlab NNToolbox documentation. We removed the training functions which weren't suitable for batch training and, after reading further into the documentation, we decided to not use 'trainb', 'traingd' and 'traigdm' - our justification being "The previous section presented two backpropagation training algorithms: gradient descent, and gradient descent with momentum. These two methods are often too slow for practical problems. In this section we discuss several high performance algorithms that can converge from ten to one hundred times faster than the algorithms discussed previously.".
-
-There were a huge amount of parameters to the different transfer functions, so to simplify or searching, we decided to optimise only learning rate and 'mu' (momentum) which were allowed to take values between 0 and 1 as multiples of 0.1.
-
-The transfer functions were also tested in the same manner.
-
-After running the genetic algorithm for a population size of 100 over 100 generations we got 
-what appears to be the optimal parameters.
-
-\subsection{Explain what strategy you employed to ensure good generalisation ability of the networks and overcome the problem of overfitting}
-
-We optimised our networks based on the f1 measure for predictions of unseen target values, this would mean that overfitted networks should perform worse and be discarded by our genetic algorithm. To make our genetic algorithm faster we discarded networks which were likely to overfit the data by bounding some of the parameters. We made sure the number of neurons per level to above 5, so it could understand the data sufficiently, and below 30 so that it is not overfitted. We also restricted the number of epochs to 100 so that the network does not become too familiar to the data. 
-
-\subsection{In Part VIII you used the optimal parameters that you found in part VI to train your networks. However, there is a problem with this approach, the data you used for validation at some point will be used for testing in cross-validation. Can you explain why this a problem? Ideally how should you optimise the parameters in cross-validation?}
-
-We were given a number of examples and targets we then divided these into  2/3 training and 1/3 validation data. The validation data then influences the neural network which is produced. Essentially you are training the neural network to perform well for the validation data and you hope that the validation data is large and representitive enough so that the neural network you produce generalises well and can classify unseen examples. When you come to perform cross validation you then use a portion of the data as testing data and the rest as training/validation data. This means that eventually you will be testing a section of data which was the network was geared for this will produce a very low error and thus will skew the average error rate affecting your cross validation result. To combat this the parameters (data) given to cross validation should be rearranged into a random order this will reduce the effect of any 'seen' data and any effects will be evenly spread and the average will not be skewed, althought it could be raised very slightly.
-
-\subsection{Is there any difference in the classification performance of the two different classification approaches. Discuss the advantages / disadvantages of using 6 single-outut NNs vs. 1 six-output NNs}
-
-Six single output neural networks perform much better than a single network. 
-
-The six networks have the advantage of collectively forming a larger, more complicated and understanding, network without overfitting individually. The isolation between the networks allows for parallelism and for greater parameter specialisation for different emotions. One disadvantage is that having multiple networks may introduce merging conflicts when resolving an answer. This could be solved by limiting outputs to continuous output so that results are very unlikely to match or by ranking networks based on reliability, for example f1 measure, classification rate, most general/simple (i.e. fewer neurons), which also adds to the processing.
-
-The single network however forms a smaller network which is less memory intensive and quicker to train and run. This means more aggressive optimisations can be performed resulting in parameters which are more finely tuned. This network would be more suited for machines whrecomputing resources are limited.
-
-\section{Code Flow Charts}
-
-\includegraphics[width=\linewidth]{build_networks.png}
-\includegraphics[width=\linewidth]{crossover.png}
-\includegraphics[width=\linewidth]{genetic_algorithm_diagram.png}
-\includegraphics[width=\linewidth]{select.png}
+\subsection{Suppose that we want to add some new emotions to the existing dataset. Which of the examined algorithms are more suitable for incorporating the new classes in terms of engineering effort? Which algorithms need to undergo radical changes in order to include new classes?}
 
 
 \end{document}
