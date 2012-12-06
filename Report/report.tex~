@@ -42,6 +42,19 @@
 
 \subsection{Comparison of values of F1 measure}
 
+\begin{tabular}{c c c} % centered columns (4 columns)
+\hline\hline %inserts double horizontal lines
+Emotion & name & Decision Tree & Neural Network & CBR\\ [0.5ex] % inserts table
+\hline % inserts single horizontal line
+1 & anger     & 0 & 0 & 0  \\ % inserting body of the table
+2 & disgust   & 0 & 0 & 0  \\
+3 & fear      & 0 & 0 & 0  \\
+4 & happiness & 0 & 0 & 0  \\
+5 & sadness   & 0 & 0 & 0  \\ 
+6 & suprise   & 0 & 0 & 0  \\ [1ex] % [1ex] adds vertical space
+\hline %inserts single line
+\end{tabular}
+
 \subsection{T-test of the clean data}
 \subsection{T-test of the noisy data}
 
@@ -50,6 +63,7 @@
 \subsection{Which algorithm performed better overall in terms of values of F1 measure (part I)? Which algorithm performed better when comparison was performed using the t-test (part II and part III)? Can we claim that this algorithm is a better learning algorithm than the others in general? Why? Why not?}
 
 \subsection{How did you adjust the significance level in order to take into account the fact that you perform a multiple comparison test?}
+<<<<<<< HEAD
 As we are performing multiple statistical tests this increases the chance that a significant result is produced simply by chance for example if you did 100 tests at the P < 0.1 significance level then you expect 10 of the 
 tests to come back as significant simply by chance. We therefore had to adjust our signficance level to counter this problem, to do this we used the Bonferroni correction. The Bonferroni correction works by simply dividing
 your significance (in our case 0.05) by the number of tests (in our case 3) to produce a new significance level for an individual test of 5 / 3; 
@@ -61,8 +75,43 @@ your significance (in our case 0.05) by the number of tests (in our case 3) to p
 \subsection{What is the trade-off between the number of folds you use and the number of examples per fold? In other words, what is going to happen if you use more folds, so you will have fewer examples per fold, or if you use fewer folds, so you will have more examples per fold?}
 
 \subsection{Suppose that we want to add some new emotions to the existing dataset. Which of the examined algorithms are more suitable for incorporating the new classes in terms of engineering effort? Which algorithms need to undergo radical changes in order to include new classes?}
+=======
 
+\subsection{Which type of t-test did you use and why?}
 
+We used the inbuilt ttest2
+
+\subsection{Why do you think t-test was performed on the classification error and not the F1 measure? What‟s the theoretical justification for this decision?}
+
+The provided target values have the following percentage of the 6 emotions:
+
+\begin{tabular}{c c c} % centered columns (4 columns)
+\hline\hline %inserts double horizontal lines
+Emotion & name & Percentage\\ [0.5ex] % inserts table
+\hline % inserts single horizontal line
+1 & anger     & 13 \\ % inserting body of the table
+2 & disgust   & 19 \\
+3 & fear      & 12 \\
+4 & happiness & 21 \\
+5 & sadness   & 13 \\ 
+6 & suprise   & 20 \\ [1ex] % [1ex] adds vertical space
+\hline %inserts single line
+\end{tabular}
+
+This means that the provided targets are unbalanced, there is not an equal chance of getting each emotion. Using the classification function as a fitness function would be misleading since it is not weighted for each emotion.
+
+Using the precision rate would weight the true positives against the positive examples of the emotion and the recall rate will weight the false negative against the negative examples. The average of this will give our f1 measure which is more representative of our performance. 
+
+\subsection{What is the trade-off between the number of folds you use and the number of examples per fold? In other words, what is going to happen if you use more folds, so you will have fewer examples per fold, or if you use fewer folds, so you will have more examples per fold?}
+>>>>>>> 6af6fc704fc0505396d05ad6b36e751bd53832a5
+
+Using smaller folds trains your algorithm using a larger variety of data and the average result over the larger sample of performance measures will produce more reliable results.
+
+As a minor point, many small folds will cause a large overhead in computation and is not suggested for frequent evaluation of the performance. 
+
+At the extremely small fold sizes the algorithms will experience underfitting to the data. The algorithm will not 'learn' enough from the fold to predict the rest of the data so will appear to perform worse than normal. Larger folds will fit closer to the data and will be more representitive of how the algorithm will perform with larger datasets. 
+
+\subsection{Suppose that we want to add some new emotions to the existing dataset. Which of the examined algorithms are more suitable for incorporating the new classes in terms of engineering effort? Which algorithms need to undergo radical changes in order to include new classes?}
 
 
 \end{document}
